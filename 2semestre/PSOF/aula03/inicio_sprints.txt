@@ -1,0 +1,5 @@
+1° Sprint (toda sprint vale nota)
+-> iniciar banco de dados do projeto
+-> desenvolver backend do projeto
+-> realizar DER do projeto
+-> iniciar site do projeto
