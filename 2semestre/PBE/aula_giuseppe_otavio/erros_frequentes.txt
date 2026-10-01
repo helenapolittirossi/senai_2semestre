@@ -1,0 +1,14 @@
+1) credenciais no código
+(escrever senhas, tokens de api ou chaves de banco de dados no texto do código).
+porque é ruim? qualquer pessoa com acesso ao código (ou que inspecione o código no navegador) pode roubar esses dados.
+
+2) erro de sintaxe
+(esquecer de fechar uma aspa, parêntese, chave, ou esquecer a palavra chave de declaração (const, let)).
+porque é ruim? o código deixará de funcionar.
+
+3) loop infinito
+(criar um loop "while" ou "for" e esquecer de incrementar a variável de controle (ex.: i++)).
+
+4) erro de digitação / erro de escopo
+(declarar a variável com um nome, e tentar usá-la com outro nome).
+porque é ruim? a variável não será utilizada.
