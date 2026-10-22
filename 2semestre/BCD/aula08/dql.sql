@@ -1,3 +1,10 @@
+SELECT * FROM produto;
+SELECT * FROM pedido;
+SELECT p.*, pr.* FROM pedido p JOIN produto pr ON p.id_produto = pr.id;
+SELECT cliente.*, pedido.* FROM cliente JOIN pedido ON cliente.id = pedido.id_cliente;
+
+
+
 select * from cliente;
 select * from telefone;
 select * from produto;
