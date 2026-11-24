@@ -1,6 +1,6 @@
 -- Criar o banco de dados
-CREATE DATABASE IF NOT EXISTS db_discoteca;
-USE db_discoteca;
+CREATE DATABASE IF NOT EXISTS discoteca;
+USE discoteca;
 
 -- Criar a tabela de discos
 CREATE TABLE IF NOT EXISTS discos (
