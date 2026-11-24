@@ -36,6 +36,13 @@
             "disciplina": "Matemática",
             "prazo": "2026-10-15",
             "status": "Pendente"
+        },
+        {
+            "id": 3,
+            "titulo": "Atividade de Matemática",
+            "disciplina": "Matemática",
+            "prazo": "2026-11-30",
+            "status": "Pendente"
         }
     ],
     "avisos": [

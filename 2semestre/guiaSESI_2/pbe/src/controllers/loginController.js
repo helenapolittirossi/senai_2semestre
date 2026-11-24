@@ -1,34 +1,38 @@
-const fs = require("fs");
-
+const conexao = require("../database");
 function login(req, res) {
-
     const { email, senha } = req.body;
-
-    const dados = JSON.parse(
-        fs.readFileSync("./dados/dados.json", "utf8")
-    );
-
-    const usuario = dados.usuarios.find(
-        usuario =>
-            usuario.email === email &&
-            usuario.senha === senha
-    );
-
-    if (!usuario) {
-        return res.status(401).json({
-            mensagem: "E-mail ou senha incorretos."
+    if (!email || !senha) {
+        return res.status(400).json({
+            mensagem: "Preencha e-mail e senha."
         });
     }
-
-    res.json({
-        mensagem: "Login realizado com sucesso!",
-        usuario: {
-            id: usuario.id,
-            nome: usuario.nome,
-            email: usuario.email,
-            tipo: usuario.tipo
+    const sql = `
+        SELECT id, nome, email, tipo
+        FROM usuarios
+        WHERE email = ? AND senha = ?
+    `;
+    conexao.query(sql, [email, senha], (erro, resultados) => {
+        if (erro) {
+            console.log("Erro ao realizar login:", erro);
+            return res.status(500).json({
+                mensagem: "Erro ao realizar login."
+            });
         }
+        if (resultados.length === 0) {
+            return res.status(401).json({
+                mensagem: "E-mail ou senha incorretos."
+            });
+        }
+        const usuario = resultados[0];
+        res.json({
+            mensagem: "Login realizado com sucesso!",
+            usuario: {
+                id: usuario.id,
+                nome: usuario.nome,
+                email: usuario.email,
+                tipo: usuario.tipo
+            }
+        });
     });
 }
-
 module.exports = login;
